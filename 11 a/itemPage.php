@@ -1,8 +1,7 @@
 <?php
-if (session_id() == '' || !isset($_SESSION)) {
-
 session_start();
-
+ print_r($_SESSION);
+if (session_id() == '' || !isset($_SESSION)) {
 
 
 }
@@ -10,7 +9,7 @@ session_start();
 <!doctype html>
 <html lang="en">
 <head>
-<title>login </title>
+<title>checkout info </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -103,6 +102,12 @@ input[type=submit] {
           float: right;
            margin-left: 360px;
       }
+        #form12{
+          background-color: white;
+      }
+        .ContentBackground{
+            background-image: url("https://placehold.it/150x80?text=IMAGE");}
+      
        #header-text{
           border-radius: 20px;
           color: white;
@@ -195,7 +200,10 @@ input[type=submit] {
         <li> <img id="headerimg" src="image.jpg" alt="logo" style="height: 50px;,width:30;" ></li> 
         <li id="header-item"><a id="header-text" href="aboutUs.php">About us</a></li>
         <li id="header-item"><a  id="header-text"  href="contactUs.php">Contact us </a></li>
-            <li id="header-item"><a id="header-text"  href="checkoutInfo.php">checkout info</a></li> 
+            <li id="header-item"><a id="header-text"  href="checkoutInfo.php">checkout info</a></li>
+        
+        
+        
       </ul> 
         
             
@@ -203,7 +211,7 @@ input[type=submit] {
             
             
     </div>
-      <div id="bottomNav" class="col-md-8 col-md-offset-2" >
+     <div id="bottomNav" class="col-md-8 col-md-offset-2" >
             
     <ul class="nav navbar-nav">
                 
@@ -241,9 +249,6 @@ input[type=submit] {
         
     </div>
     
-        
-        
-        
     
     </div>
     </div>
@@ -251,37 +256,26 @@ input[type=submit] {
 
 
 
-  
-<div id="myPageContent" class="container text-center">    
+        
+  <div id="myPageContent" class="container text-center">    
  <div class="ContentBackground">
   <div class="row">
     <div id="form12" class="col-sm-6">
         <br>
-        <h3>login</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
-      <form action="loginAction.php" method=post>
-  username:<br>
-  <input id="username" type="text" name="username" >
-  <br>
-         
-
-          
-          
-  password:<br>
-  <input id="t2" type="password" name="password" >
-         <br>
-         <a href="register.php"> click here if you need to register</a>
-     <br><br>
-  <input type="submit"  
-        value="login">
-  
-</form> 
-    <?php
-        if(isset($_SESSION['message'])){
-           echo $_SESSION["message"] ; 
-        }
+        <h3><?php echo $_SESSION["itemNameDis"];?></h3>
+        <p><?php echo $_SESSION["itemDescDis"];?> </p>
         
-        ?>
+      <img src="<?php echo $_SESSION["itemPicDis"];?>" class="img-responsive" style="width:100%" alt="Image">
+         <p>quantity:</p>
+        <p><?php echo $_SESSION["itemQuantDis"];?> </p>
+        <p>price:</p>
+         <p><?php echo $_SESSION["itemPriDis"];?> </p>
+        <form action="contactAction.php">
+ 
+  <br><br>
+  <input type="submit" value="add to cart">
+</form> 
+        
     </div>
     <div class="col-sm-6"> 
         
@@ -289,7 +283,9 @@ input[type=submit] {
     
   </div>
 </div><br>
-</div> 
+</div>  
+        
+
 
 
 <footer class="container-fluid text-center">

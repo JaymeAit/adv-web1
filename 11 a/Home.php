@@ -2,219 +2,16 @@
 if (session_id() == '' || !isset($_SESSION)) {
 
 session_start();
-    $itemCategory2="luggage bag";
-    $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "shoppingdatabase";
-    try{
-    $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-    $test=false;
-        $numberOfItems1= 0;
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+ print_r($_SESSION);
+
+
 }
-
-$sql = "SELECT itemName, itemCategory, itemPrice,itemDescription,quantity,itemPic FROM items";
-$result = $conn->query($sql);
-    
-        try{
-      while($row = $result->fetch_assoc()) {
-        $test24 = $row["itemCategory"];
-            
-        if($test24 == $itemCategory2){
-            $test=true;
-           $numberOfItems1=$numberOfItems1+1;
-             $_SESSION["messageReg12"] ="category found ";
-       
-        }
-    }
-        }
-        catch(PDOException $e){
-    echo $sql . "<br>" . $e->getMessage(); 
-}
-        
-}
-    catch(PDOException $e){
-    echo $sql . "<br>" . $e->getMessage(); 
-}
-}
- else {
-    echo "0 results";
-}
-
-    
-
-
-
-
-
-?>
-
-
-<?php
-
-if(isset($_POST["add_SC"])){
-    
-   if(isset($_SESSION["SC"])){
-       
-       $stored_items_id=array_column($_SESSION["SC"],"item_name");
-       if(!in_array($_POST["name_hid"],$stored_items_id))
-       {
-           $count= count($_SESSION["SC"]);
- $stored_items=array('item_name'=>$_POST["name_hid"],'item_price'=>$_POST["price_hid"],'item_quantity'=>$_POST["quant"] );
-       $_SESSION["SC"][$count]=$stored_items;     
-   }
-       else{
-           echo "item already added "; 
-        
-   
-           
-               echo $_POST["name_hid"];
-           echo $_POST["quant"];
-           $count= count($_SESSION["SC"]);
-           echo $count;
-      
-           foreach($_SESSION["SC"]as $keys =>$values){
-               $value=$_POST["name_hid"];
-                  if($values["item_name"]== $_POST["name_hid"]){
-                      
-                      $n1=$values["item_name"];
-                      $p1=$values["item_price"];
-                      
-                      
-             $newq=$values["item_quantity"]+$_POST["quant"] ;
-               echo $newq;
-                 $_SESSION["SC"][$keys]['item_quantity']=$newq;      
   
-                      
-                  }
-           }
-               echo $value;
-   
-           
-     
-       }
-   }
-    else{
-        $stored_items=array('item_name'=>$_POST["name_hid"],'item_price'=>$_POST["price_hid"],'item_quantity'=>$_POST["quant"] );
-        $_SESSION["SC"][0]=$stored_items;      
-    }   
-}
-
-  if(isset($_POST["del_SC"])){
-      
-          
-      echo $_POST["name_hid"];
-           foreach($_SESSION["SC"]as $keys =>$values){
-               $value=$_POST["name_hid"];
-                  if($values["item_name"]== $_POST["name_hid"]){    
-                   unset($_SESSION["SC"][$keys]);
-               }
-               
-               echo $value;
-   
-           }
-   }
-
-
-
- if(isset ($_GET["action"])){
-       if($_GET["action"]=="empty"){
-          unset($_SESSION["SC"]);
-                   
-               }       
-           }
-          
-
-
 ?>
-
-<?php
-
-if(isset($_POST["add_W"])){
-    
-   if(isset($_SESSION["WishL"])){
-       
-       $stored_items_id=array_column($_SESSION["WishL"],"item_name");
-       if(!in_array($_POST["name_hid"],$stored_items_id))
-       {
-           $count= count($_SESSION["WishL"]);
- $stored_items=array('item_name'=>$_POST["name_hid"],'item_price'=>$_POST["price_hid"],'item_quantity'=>$_POST["quant"] );
-       $_SESSION["WishL"][$count]=$stored_items;     
-   }
-       else{
-              echo "error";
-                      
-                  }
-           
-            
-   
-           
-     
-       }
-   
-    else{
-        $stored_items=array('item_name'=>$_POST["name_hid"],'item_price'=>$_POST["price_hid"],'item_quantity'=>$_POST["quant"] );
-        $_SESSION["WishL"][0]=$stored_items;      
-    }   
-}
-
-  if(isset($_POST["del_W"])){
-      
-          
-      echo $_POST["name_hid"];
-           foreach($_SESSION["WishL"]as $keys =>$values){
-               $value=$_POST["name_hid"];
-                  if($values["item_name"]== $_POST["name_hid"]){    
-                   unset($_SESSION["WishL"][$keys]);
-               }
-               
-               echo $value;
-   
-           }
-   }
-
-
-
- if(isset ($_GET["action"])){
-       if($_GET["action"]=="emptyW"){
-          unset($_SESSION["WishL"]);
-                   
-               }       
-           }
-          
-
-
-?>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 25%;
-
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-/* Style the buttons */
-
-</style>
-
 <!doctype html>
 <html lang="en">
 <head>
-<title>Luggage bags </title>
+<title>Home </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -380,7 +177,7 @@ input[type=submit] {
     <div class="Navbar-container" >
     <div class="container-fluid list-center">
     
-         <div id="navabarList" class="col-md-9 col-md-offset-2" >
+        <div id="navabarList" class="col-md-9 col-md-offset-2" >
     
             
     <ul class="nav navbar-nav">
@@ -407,7 +204,7 @@ input[type=submit] {
             
             
     </div>
-     <div id="bottomNav" class="col-md-8 col-md-offset-2" >
+        <div id="bottomNav" class="col-md-8 col-md-offset-2" >
             
     <ul class="nav navbar-nav">
                 
@@ -451,8 +248,12 @@ input[type=submit] {
     
 
 
-<div id="myPictures" class="carousel slide" >
-   
+<div id="myPictures" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox" >
@@ -473,275 +274,43 @@ input[type=submit] {
       </div>
     </div>
 
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myPictures" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myPictures" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+  
+<div id="myPageContent" class="container text-center">    
  
-</div>
-  <br>
-<div id="myPageContent" class="container text-center"> 
-       <?php if (isset($_SESSION['userName12']))
-{?>
-   
-      <div id="wish-list">
-<div class="txt-heading">wish list</div>
-
-<a id="btnEmpty" href="luggageBags.php?action=emptyW">clear wish list</a>
-<?php
-if(isset($_SESSION["WishL"])){
-    $total_quantity = 0;
-    $total_price = 0;
-?>	
-<table class="tbl-cart" cellpadding="10" cellspacing="1">
-<tbody>
-<tr>
-<th style="text-align:left;">Name</th>
-
-<th style="text-align:center;" width="5%">Remove</th>
-</tr>	
-<?php		
-
-    if(!empty($_SESSION["WishL"])){
-      
-    foreach ($_SESSION["WishL"] as $KEYS => $values){
-        $item_price = (int)$values["item_quantity"]*(int)$values["item_price"];
-		?>
-    
-    
-				<tr>
-				<td><?php echo $values["item_name"];?> </td>
-			
-
-        <td style="text-align:center;">
-            
-            
-             
-        
-            
-            
-                <form method="post" action="luggageBags.php?action=delete&code="<?php echo $values["item_name"];?>"">
-	
-              <?php $itemName=$values["item_name"];?>
-                   
-                   
-             <input type= "hidden" name="name_hid" value="<?php echo $values["item_name"]?>"/>
-              
-              <input type="submit"name="del_SC" value="remove item" class="btn btn-success" />
-		
-		</form>
-            
-     
-                    </td>
-
-    </tr>
-    
-    
-    
-    
-    
-    
-    
-				<?php
-			
-		}
-    }
-		?>
-
-
-</tbody>
-</table>		
-  <?php
-} else {
-?>
-<div class="no-records">Your Wish list is empty</div>
-<?php 
-}
-?>
-</div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-       
-      <button onclick="listView()"><i class="fa fa-bars"></i> List</button>
-<button onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
-    
-    
-    
-    <div id="shopping-cart">
-<div class="txt-heading">Shopping Cart</div>
-
-<a id="btnEmpty" href="luggageBags.php?action=empty">Empty Cart</a>
-<?php
-if(isset($_SESSION["SC"])){
-    $total_quantity = 0;
-    $total_price = 0;
-?>	
-<table class="tbl-cart" cellpadding="10" cellspacing="1">
-<tbody>
-	
-<?php		
-
-    if(!empty($_SESSION["SC"])){
-      
-    foreach ($_SESSION["SC"] as $KEYS => $values){
-        $item_price = (int)$values["item_quantity"]*(int)$values["item_price"];
-		?>
-    
-    
-				<div class="row">
-		<div class="column" style="background-color:#ccc;"><p>item name:</p><?php echo $values["item_name"];?> </div>
-			<div class="column" style="background-color:#ccc;"><p>price:</p>	<?php echo $values["item_price"];?> </div>
-                    <div class="column" style="background-color:#ccc;"><p>qty:</p>	<?php echo $values["item_quantity"];?> </div>
-
-
-   <div class="column" style="background-color:#ccc;">
-            
-            
-             
-        
-            
-            
-            <form method="post" action="plasticBags.php?action=delete&code="<?php echo $values["item_name"];?>"">
-	
-              <?php $itemName=$values["item_name"];?>
-                   
-                   
-             <input type= "hidden" name="name_hid" value="<?php echo $values["item_name"]?>"/>
-              
-              <input type="submit"name="del_SC" value="remove item" class="btn btn-success" />
-		
-		</form>
-            
-     
-                   </div>
-    
-    </div>
-    
-    
-    
-    
-    
-    
-				<?php
-				$total_quantity += $values["item_quantity"];
-       
-        
-				$total_price += ((int)$values["item_price"]*(int)$values["item_quantity"]);
-		}
-    }
-		?>
-
-<tr>
-<td colspan="2" align="right">Total qty:</td>
-<td align="right"><?php echo $total_quantity; ?></td>
- </tr>
-    <tr>
-    <td colspan="2" align="right">Total price:</td>
-<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>		
-  <?php
-} else {
-?>
-<div class="no-records">Your Cart is Empty</div>
-<?php 
-}
-?>
-</div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-   <?php } ?> 
-    
-    
- <?php if($test==true)
-{
-    
-    $sql = "SELECT itemName, itemCategory, itemPrice,itemDescription,quantity,itemPic FROM items";
-$result = $conn->query($sql);
-    while($row = $result->fetch_assoc()) {
-        $test24 = $row["itemCategory"];
-            $picture= $row["itemPic"];
-        if($test24 == $itemCategory2){ ?>
   <div class="row">
-    <div class="col-sm-3">
-      <img src="<?php echo $picture; ?>" class="img-responsive" style="width:100%" alt="https://placehold.it/150x80?text=IMAGE"> 
-        <h3><?php echo $row["itemName"];?></h3>
-
-         <p><?php echo $row["itemDescription"];?></p>
-        <form action="itemPageAction.php" method="post">
-<input type="hidden" id="itemName" name="itemName1" value= "<?php echo $row["itemName"];?>">
-  <input type="submit" value="View Item">
-</form> 
-         
-           <?php if (isset($_SESSION['userName12']))
-{?>
+    <div class="col-sm-4">
+      <h3>Project 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
         
-        
-        <form method="post" action="luggageBags.php?action=add&code="<?php echo $row["itemName"];?>"">
-	
-                         <input type= "text" name="quant" class="form-control" value=1>
-              <input type= "hidden" name="name_hid" value="<?php echo $row["itemName"];?> "/>
-          <input type= "hidden" name="price_hid" value="<?php echo $row["itemPrice"];?> "/>    
-       
-              
-              
-              
-              <input type="submit"name="add_SC" value="Add to Cart" class="btn btn-success" />
-		
-		</form>
-        
-        
-          <form method="post" action="luggageBags.php?action=add&code="<?php echo $row["itemName"];?>"">
-	
-                         <input type= "hidden" name="quant" class="form-control" value=1>
-              <input type= "hidden" name="name_hid" value="<?php echo $row["itemName"];?> "/>
-          <input type= "hidden" name="price_hid" value="<?php echo $row["itemPrice"];?> "/>    
-       
-              
-              
-              
-              <input type="submit"name="add_W" value="Add to wish list" class="btn btn-success" />
-		
-		</form>
-        
-        
-     <?php } else{ 
-        
-        
-        
-        ?>
-        <p>login first to buy</p>
-        
-        <?php } ?>
-        
-    
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     </div>
-    <?php }}} ?>
+    <div class="col-sm-4"> 
+        <h3>Project 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
+        
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> 
+    </div>
+    <div class="col-sm-4">
+      <h3>Project 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
+        
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    </div>
   </div>
 </div><br>
-  
-
 
 
 <footer class="container-fluid text-center">
@@ -779,39 +348,7 @@ $result = $conn->query($sql);
     
 </footer>
     </div>
-    <script >
-// Get the elements with class="column"
-var elements = document.getElementsByClassName("column");
-
-// Declare a loop variable
-var i;
-
-// List View
-function listView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "100%";
-  }
-}
-
-// Grid View
-function gridView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "25%";
-  }
-}
-
-/* Optional: Add active class to the current button (highlight it) */
-var container = document.getElementById("btnContainer");
-var btns = container.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-</script>
-    <script >
+    <script>
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/

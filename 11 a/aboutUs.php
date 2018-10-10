@@ -2,54 +2,50 @@
 if (session_id() == '' || !isset($_SESSION)) {
 
 session_start();
- 
+ print_r($_SESSION);
 
 
 }
-  
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
-<title>Home </title>
+    
+<title>About Us </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-suggest.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap-suggest.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
   <style>
-      * {
-  box-sizing: border-box;
-}
-
+      * { box-sizing: border-box; }
 body {
-  font: 16px Arial;  
+  font: 16px Arial;
 }
-
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
 }
-
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
   padding: 10px;
   font-size: 16px;
 }
-
 input[type=text] {
   background-color: #f1f1f1;
   width: 100%;
 }
-
 input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
-  cursor: pointer;
 }
-
 .autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;
@@ -61,23 +57,20 @@ input[type=submit] {
   left: 0;
   right: 0;
 }
-
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
 }
-
 .autocomplete-items div:hover {
   /*when hovering an item:*/
-  background-color: #e9e9e9; 
+  background-color: #e9e9e9;
 }
-
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
+  background-color: DodgerBlue !important;
+  color: #ffffff;
 }
       li{
           
@@ -172,7 +165,8 @@ input[type=submit] {
     </style>  
      <link rel="icon" href="image.jpg" type="image/gif" sizes="16x16">
 </head>
-<body>
+<body>  
+    
     <div id="content">
     <div class="Navbar-container" >
     <div class="container-fluid list-center">
@@ -204,7 +198,7 @@ input[type=submit] {
             
             
     </div>
-        <div id="bottomNav" class="col-md-8 col-md-offset-2" >
+       <div id="bottomNav" class="col-md-8 col-md-offset-2" >
             
     <ul class="nav navbar-nav">
                 
@@ -248,66 +242,37 @@ input[type=submit] {
     
 
 
-<div id="myPictures" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" >
-      <div class="item active">
-        <img  src="b1.jpg" alt="Image"style="height:400px;">
-        <div class="carousel-caption">
-          <h3>environmentally friendly</h3>
-          <p>cleanbags</p>
-        </div>      
-      </div>
-
-      <div class="item">
-        <img src="b2.jpg"alt="Image"style="height:400px;">
-        <div class="carousel-caption">
-          <h3>bio degradable</h3>
-          <p>Lorem ipsum...</p>
-        </div>      
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myPictures" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myPictures" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>
   
 <div id="myPageContent" class="container text-center">    
- 
+ <h1>About us</h1>
   <div class="row">
-    <div class="col-sm-4">
-      <h3>Project 2</h3>
+    <div class="col-sm-6">
+      <h2>who are we?</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
         
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      <h3>who are we?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+         <h3>who are we?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <h3>who are we?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <h3>who are we?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
     </div>
-    <div class="col-sm-4"> 
-        <h3>Project 2</h3>
+ 
+    <div class="col-sm-6">
+   
+        
+      <h2>who are we?</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
         
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> 
-    </div>
-    <div class="col-sm-4">
-      <h3>Project 2</h3>
+        <h2>who are we?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
+        <h2>who are we?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
+           <h2>who are we?</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
-        
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     </div>
   </div>
 </div><br>
@@ -348,7 +313,7 @@ input[type=submit] {
     
 </footer>
     </div>
-    <script>
+<script>
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -452,5 +417,6 @@ var countries = ["plastic bags", "canvas bags","luggage bags","hand bags","about
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
 </script>
+
 </body>
 </html>

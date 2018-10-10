@@ -60,7 +60,7 @@ $result = $conn->query($sql);
 }
 
     
-
+ print_r($_SESSION);
 
 
 

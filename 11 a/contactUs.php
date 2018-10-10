@@ -2,14 +2,15 @@
 if (session_id() == '' || !isset($_SESSION)) {
 
 session_start();
+ print_r($_SESSION);
 
-   
+
 }
 ?>
 <!doctype html>
 <html lang="en">
 <head>
-<title>login </title>
+<title>contact us  </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -122,10 +123,6 @@ input[type=submit] {
       #bottomNav{
         background-color: gray;
       }
-        #form12{
-          background-color: white;
-      }
-
       #myPictures{
           width: 925px;
           margin: auto;
@@ -149,9 +146,8 @@ input[type=submit] {
     position: relative;
     display: inline-block;
 }
-      .ContentBackground{
-           background-image: url("https://placehold.it/150x80?text=IMAGE");           
-
+      #form12{
+          background-color: white;
       }
 
 .dropdown-content {
@@ -175,11 +171,14 @@ input[type=submit] {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+      .ContentBackground{
+           background-image: url("https://placehold.it/150x80?text=IMAGE");           
+
+      }
     </style>  
      <link rel="icon" href="image.jpg" type="image/gif" sizes="16x16">
 </head>
 <body>
-    
     <div id="content">
     <div class="Navbar-container" >
     <div class="container-fluid list-center">
@@ -256,34 +255,41 @@ input[type=submit] {
 
 
 
-  
+
 <div id="myPageContent" class="container text-center">    
  <div class="ContentBackground">
   <div class="row">
     <div id="form12" class="col-sm-6">
         <br>
-        <h3>register</h3>
+        <h3>Project 2</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
-      <form action="registerAction.php" method=post>
-  username:<br>
-  <input id="username" type="text" name="username" >
+      <form action="contactAction.php">
+  First name:<br>
+  <input type="text" name="firstname" value="name">
   <br>
-  password:<br>
-  <input id="t2" type="text" name="password" value="password">
+  Last name:<br>
+  <input type="text" name="lastname" value="last name">
          <br>
           email:<br>
-  <input id="t3" type="text" name="email" value="email">
-     <br><br>
-  <input type="submit" value="register"  
-        >
-  
+  <input type="text" name="lastname" value="Mouse">
+          <br>
+          phone number:<br>
+  <input type="text" name="lastname" value="phone number">
+ <br>
+          description:<br>
+  <input type="text" name="lastname" value="description">
+          <br>
+  <br><br>
+  <input type="submit" value="Submit">
 </form> 
-      <?php
-        if(isset($_SESSION['messageReg12'])){
-           echo $_SESSION["messageReg12"] ; 
+        <?php
+        
+        if(isset($_SESSION['contactMessage'])){
+           echo $_SESSION["contactMessage"] ; 
         }
         
-        ?>   
+        
+        ?>
     </div>
     <div class="col-sm-6"> 
         
@@ -291,7 +297,7 @@ input[type=submit] {
     
   </div>
 </div><br>
-</div> 
+</div>  
 
 <footer class="container-fluid text-center">
  

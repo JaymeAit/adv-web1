@@ -2,50 +2,52 @@
 if (session_id() == '' || !isset($_SESSION)) {
 
 session_start();
-
-
-
+ print_r($_SESSION);
+   
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
-    
-<title>About Us </title>
+<title>login </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-suggest.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap-suggest.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
   <style>
-      * { box-sizing: border-box; }
-body {
-  font: 16px Arial;
+      * {
+  box-sizing: border-box;
 }
+
+body {
+  font: 16px Arial;  
+}
+
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
 }
+
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
   padding: 10px;
   font-size: 16px;
 }
+
 input[type=text] {
   background-color: #f1f1f1;
   width: 100%;
 }
+
 input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
+  cursor: pointer;
 }
+
 .autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;
@@ -57,20 +59,23 @@ input[type=submit] {
   left: 0;
   right: 0;
 }
+
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
 }
+
 .autocomplete-items div:hover {
   /*when hovering an item:*/
-  background-color: #e9e9e9;
+  background-color: #e9e9e9; 
 }
+
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
       li{
           
@@ -117,6 +122,10 @@ input[type=submit] {
       #bottomNav{
         background-color: gray;
       }
+        #form12{
+          background-color: white;
+      }
+
       #myPictures{
           width: 925px;
           margin: auto;
@@ -140,6 +149,10 @@ input[type=submit] {
     position: relative;
     display: inline-block;
 }
+      .ContentBackground{
+           background-image: url("https://placehold.it/150x80?text=IMAGE");           
+
+      }
 
 .dropdown-content {
     display: none;
@@ -165,13 +178,13 @@ input[type=submit] {
     </style>  
      <link rel="icon" href="image.jpg" type="image/gif" sizes="16x16">
 </head>
-<body>  
+<body>
     
     <div id="content">
     <div class="Navbar-container" >
     <div class="container-fluid list-center">
     
-        <div id="navabarList" class="col-md-9 col-md-offset-2" >
+         <div id="navabarList" class="col-md-9 col-md-offset-2" >
     
             
     <ul class="nav navbar-nav">
@@ -198,7 +211,7 @@ input[type=submit] {
             
             
     </div>
-       <div id="bottomNav" class="col-md-8 col-md-offset-2" >
+        <div id="bottomNav" class="col-md-8 col-md-offset-2" >
             
     <ul class="nav navbar-nav">
                 
@@ -245,38 +258,40 @@ input[type=submit] {
 
   
 <div id="myPageContent" class="container text-center">    
- <h1>About us</h1>
+ <div class="ContentBackground">
   <div class="row">
-    <div class="col-sm-6">
-      <h2>who are we?</h2>
+    <div id="form12" class="col-sm-6">
+        <br>
+        <h3>register</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
+      <form action="registerAction.php" method=post>
+  username:<br>
+  <input id="username" type="text" name="username" >
+  <br>
+  password:<br>
+  <input id="t2" type="text" name="password" value="password">
+         <br>
+          email:<br>
+  <input id="t3" type="text" name="email" value="email">
+     <br><br>
+  <input type="submit"  
+        >
+  
+</form> 
+      <?php
+        if(isset($_SESSION['messageReg12'])){
+           echo $_SESSION["messageReg12"] ; 
+        }
         
-      <h3>who are we?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-         <h3>who are we?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-        <h3>who are we?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-        <h3>who are we?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        ?>   
     </div>
- 
-    <div class="col-sm-6">
-   
+    <div class="col-sm-6"> 
         
-      <h2>who are we?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
-        
-        <h2>who are we?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
-        <h2>who are we?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
-           <h2>who are we?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. </p>
     </div>
+    
   </div>
 </div><br>
-
+</div> 
 
 <footer class="container-fluid text-center">
  
@@ -313,7 +328,7 @@ input[type=submit] {
     
 </footer>
     </div>
-<script>
+    <script>
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -417,6 +432,5 @@ var countries = ["plastic bags", "canvas bags","luggage bags","hand bags","about
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
 </script>
-
 </body>
 </html>
